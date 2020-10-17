@@ -28,7 +28,7 @@ class SearchController extends Controller
       $wifi = $request->get('wifi');
       $pet = $request->get('pet');
       $parking = $request->get('parking');
-      $piano = $request->get('piano');
+      $pianoforte = $request->get('pianoforte');
       $sauna = $request->get('sauna');
       $lat = floatval($request->get('latitude'));
       $lng = floatval($request->get('longitude'));
@@ -93,7 +93,7 @@ class SearchController extends Controller
         });
       }
 
-      if ($piano == 'true') {
+      if ($pianoforte == 'true') {
         $queryPromo->whereHas('services', function (Builder $query) {
           $query->where('service_id', '=', '5');
          });
@@ -128,6 +128,7 @@ class SearchController extends Controller
       $promo = $queryPromo->get();
 
       $querySuite = Suite::query();
+
 
       $querySuite->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
       $querySuite->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
@@ -167,7 +168,7 @@ class SearchController extends Controller
           });
         }
 
-        if ($piano == 'true') {
+        if ($pianoforte == 'true') {
           $querySuite->whereHas('services', function (Builder $query) {
             $query->where('service_id', '=', '5');
            });
@@ -200,6 +201,8 @@ class SearchController extends Controller
         }
 
       $noPromo = $querySuite->doesnthave('highlights')->get();
+      // dd($noPromo);
+      // dd($promo);
       return response()->json(compact('noPromo','promo'));
 
     }

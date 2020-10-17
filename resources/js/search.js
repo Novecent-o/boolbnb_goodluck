@@ -143,8 +143,8 @@ function ajaxCall(params)
 
   $.ajax
   ({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -159,7 +159,7 @@ function ajaxCall(params)
             wifi: params.wifi,
             pet: params.pet,
             parking: params.parking,
-            piano: params.piano,
+            pianoforte: params.pianoforte,
             sauna: params.sauna,
             latitude: params.latitude,
             longitude: params.longitude,
@@ -182,7 +182,7 @@ function ajaxCall(params)
         wifi: $('#wifi').val(),
         pet: $('#pet').val(),
         parking: $('#parking').val(),
-        piano: $('#piano').val(),
+        pianoforte: $('#pianoforte').val(),
         sauna: $('#sauna').val(),
 
       }
@@ -221,7 +221,7 @@ function success(suites, filters = 0)
     $('#wifi').val(filters.wifi)
     $('#pet').val(filters.pet)
     $('#parking').val(filters.parking)
-    $('#piano').val(filters.piano)
+    $('#pianoforte').val(filters.pianoforte)
     $('#sauna').val(filters.sauna)
 
   }
@@ -359,7 +359,7 @@ function setParams()
     wifi: $('#wifi').val(),
     pet: $('#pet').val(),
     parking: $('#parking').val(),
-    piano: $('#piano').val(),
+    pianoforte: $('#pianoforte').val(),
     sauna: $('#sauna').val(),
     latitude: $('#algolia_input').attr('data-lat'),
     longitude: $('#algolia_input').attr('data-lng')
