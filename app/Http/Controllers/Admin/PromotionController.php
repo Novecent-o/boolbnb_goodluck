@@ -19,25 +19,19 @@ class PromotionController extends Controller
 
       // Ottenere la data odierna
       $now = Carbon::now();
-      $data_scadenza = false;
-      $time_ending = false;
 
       // Se esistono suite con gli highlights
       if (count($suite->highlights) != 0) {
 
         // Ciclare per ogni Highlight
         foreach ($suite->highlights as $highlight) {
-          $time_ending = $highlight->pivot->end;
 
           // Se la data di scadenza é superiore alla data odierna eliminare l'Highlight
-          if ($time_ending < $now) {
+          if ($highlight->pivot->end < $now) {
             $apartment->highlights()->detach($highlight);
           }
         }
 
-        // Se l'Highlight non é scaduto,cambiare il dato in carbon con il formato
-        $carbon_time_ending = new Carbon($time_ending);
-        $data_scadenza = $carbon_time_ending->format('d-m-y');
       }
 
       // Implementare il Gateway per avere l'accesso al pagamento
@@ -51,7 +45,7 @@ class PromotionController extends Controller
       // Ricavare il token univoco per ogni cliente
       $token = $gateway->ClientToken()->generate();
 
-      return view('admin.suites.promotion', compact('token', 'suite', 'highlights', 'data_scadenza' , 'now' ,'time_ending'));
+      return view('admin.suites.promotion', compact('token', 'suite', 'highlights'));
     }
 
   // --------------------------------------- CHECKOUT --------------------------------------------
@@ -65,27 +59,27 @@ class PromotionController extends Controller
         'privateKey' => config('services.braintree.privateKey')
     ]);
 
+    // Inserisco il tipo di sponsorizzazione in una variabile
+    $highlight = $request->type;
+
     // Calcolo del prezzo in base alla promozione
-    if ($request->type == '24') {
+    if ($highlight == '24') {
       $costo = 2.99;
-    }elseif ($request->type == '72') {
+    }elseif ($highlight == '72') {
       $costo = 5.99;
     }else {
       $costo = 9.99;
     }
-    $amount = $costo;
 
     // Metodo di pagamento
     $nonce = $request->payment_method_nonce;
-
-    $highlight = $request->type;
 
     // Prendere il primo Highlight con il tipo passato
     $this_highlight = Highlight::where('type', $highlight)->first();
 
     // Passare tutti i dati relativi al pagamento
     $result = $gateway->transaction()->sale([
-        'amount' => $amount,
+        'amount' => $costo,
         'paymentMethodNonce' => $nonce,
         'options' => [
             'submitForSettlement' => true

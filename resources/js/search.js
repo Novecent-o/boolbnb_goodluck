@@ -143,8 +143,8 @@ function ajaxCall(params)
 
   $.ajax
   ({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -337,9 +337,7 @@ function loadMap(map_pins, range)
 // attach pins to the map
 function pinSuiteToMap(pin, mymap)
 {
-
   L.marker([pin.lat, pin.lng]).bindPopup(pin.title).openPopup().addTo(mymap);
-
 }
 
 
