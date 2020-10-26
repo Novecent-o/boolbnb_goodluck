@@ -76,6 +76,15 @@
   position: relative;
 }
 
+// Pagination
+@mixin pagination_list_item {
+  height: 100%;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 // Form Title Typography
 @mixin form_top_title {
   text-transform: capitalize;

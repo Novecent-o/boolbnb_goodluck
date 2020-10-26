@@ -10,12 +10,7 @@
   <section class="jumbotron mb-0 p-0 jumbotron-fluid text-lg-left text-center jumbo_custom">
 
     {{-- Carousel --}}
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2500">
 
       {{-- Background Images Carousel--}}
       <div class="carousel-inner">
@@ -144,31 +139,35 @@
 
                     {{-- Card Text --}}
                     <div class="card-body p-3 d-flex flex-column justify-content-between">
-                      <div class="title_address">
+
+                      {{-- Title address services container --}}
+                      <div class="title_address_services">
                         <h5 class="card-title">{{ $highlight_suite_active->title }}</h5>
                         <p class="card-text">{{ $highlight_suite_active->address }}</p>
-                      </div>
 
-                      {{-- Services --}}
-                      <div class="services d-flex justify-content-start">
-                        @foreach ($suites as $suite)
-                          @if ($suite->id === $highlight_suite_active->id)
-                            @if (empty($suite->services))
-                              <i class="fas fa-not-equal"></i>
-                            @else
-                              @foreach ($suite->services as $suite_service)
-                                <i class="{{ $suite_service->icon }} pr-3"></i>
-                              @endforeach
+                        {{-- Services --}}
+                        <div class="services d-flex justify-content-start">
+                          @foreach ($suites as $suite)
+                            @if ($suite->id === $highlight_suite_active->id)
+                              @if (empty($suite->services))
+                                <i class="fas fa-not-equal"></i>
+                              @else
+                                @foreach ($suite->services as $suite_service)
+                                  <i class="{{ $suite_service->icon }} pr-3"></i>
+                                @endforeach
+                              @endif
                             @endif
-                          @endif
-                        @endforeach
+                          @endforeach
+                        </div>
+                        {{-- end Services --}}
+
                       </div>
-                      {{-- end Services --}}
+                      {{-- end Title address services container --}}
 
                       {{-- Price & Show button --}}
                       <div class="price_show d-flex justify-content-between align-items-center">
                         <div class="price d-flex justify-content-start">
-                          <span>{{ $highlight_suite_active->price }} $</span>
+                          <span>{{ $highlight_suite_active->price }}</span>
                         </div>
                         <div class="suite_show_link">
                           <a href="{{ route("suites.show", $highlight_suite_active->id) }}" class="badge badge-primary border-0 rounded-0">
@@ -225,27 +224,31 @@
 
                     {{-- Card Text --}}
                     <div class="card-body p-3 d-flex flex-column justify-content-between">
-                      <div class="title_address">
+
+                      {{-- Title address services container --}}
+                      <div class="title_address_services">
                         <h5 class="card-title">{{ $suite->title }}</h5>
                         <p class="card-text">{{ $suite->address }}</p>
-                      </div>
 
-                      {{-- Services --}}
-                      <div class="services d-flex justify-content-start">
-                        @if (empty($suite->services))
-                          <i class="fas fa-not-equal"></i>
-                        @else
-                          @foreach ($suite->services as $suite_service)
-                            <i class="{{ $suite_service->icon }} pr-3"></i>
-                          @endforeach
-                        @endif
+                        {{-- Services --}}
+                        <div class="services d-flex justify-content-start">
+                          @if (empty($suite->services))
+                            <i class="fas fa-not-equal"></i>
+                          @else
+                            @foreach ($suite->services as $suite_service)
+                              <i class="{{ $suite_service->icon }} pr-3"></i>
+                            @endforeach
+                          @endif
+                        </div>
+                        {{-- end Services --}}
+
                       </div>
-                      {{-- end Services --}}
+                      {{-- Title address services container --}}
 
                       {{-- Price & Show button --}}
                       <div class="price_show d-flex justify-content-between align-items-center">
                         <div class="price d-flex justify-content-start">
-                          <span>{{ $suite->price }} $</span>
+                          <span>{{ $suite->price }}</span>
                         </div>
                         <div class="suite_show_link">
                           <a href="{{ route("suites.show", $suite->id) }}" class="badge badge-primary border-0 rounded-0">

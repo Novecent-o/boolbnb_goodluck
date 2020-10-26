@@ -1,0 +1,61 @@
+// partials/_pagination_default
+
+// Pagination
+.wrapper_pagination {
+  margin-top: $margin_top_pagination;
+
+  nav.pagination_default {
+    & > ul.pagination {
+      padding: 0;
+      margin: 0;
+      height: $height_elements;
+
+      & > li {
+        @include pagination_list_item;
+
+        &:not(:last-child) {
+          margin-right: $margin_pages;
+        }
+
+        &:not(:first-child):not(:last-child) {
+          font-family: $primary_font;
+          font-size: $text_size_1;
+          background-color: $color_text_2;
+
+          & > a {
+            color: $color_text_3;
+
+            &:hover {
+              color: $color_buttons;
+              text-decoration: none;
+            }
+          }
+        }
+
+        &:first-child, &:last-child {
+          background-color: $color_buttons;
+
+          & > a,
+          & > span {
+            font-size: $text_size_1;
+            color: $color_text_2;
+          }
+
+          &:hover {
+            background-color: $color_button_hover;
+          }
+        }
+
+        &.disabled {
+          display: none;
+        }
+
+        &.active {
+          font-size: $text_size_1;
+          background-color: $color_text_3 !important;
+          color: $color_text_2 !important;
+        }
+      }
+    }
+  }
+}

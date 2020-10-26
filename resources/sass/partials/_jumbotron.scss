@@ -13,12 +13,18 @@ main {
     .carousel {
       height: $carousel_content_height;
       width: 100%;
+      background-color: $color_text_1;
       position: absolute;
 
-      .carousel-inner > .carousel-item > img {
-        height: $carousel_content_height;
-        filter: brightness(85%) saturate(120%);
-        -webkit-filter: brightness(85%) saturate(120%);
+      .carousel-inner > .carousel-item {
+        transition: $carousel-transition;
+        
+        & > img {
+          height: $carousel_content_height;
+          filter: brightness(85%) saturate(120%);
+          -webkit-filter: brightness(85%) saturate(120%);
+          border: $border_none;
+        }
       }
     }
 
