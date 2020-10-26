@@ -31,7 +31,7 @@ class SuiteController extends Controller
   public function index()
   {
     $services = Service::all();
-    $suites = Suite::all();
+    $suites = Suite::paginate(6);
 
     // Sql Query Join Highligts -> Suites
     $highlights_suites = DB::table('highlights')->join('highlight_suite', function($join)

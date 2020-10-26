@@ -17,31 +17,31 @@
               <nav class="footer_menu_navbar">
                 <ul class="footer_menu_list text-center d-flex justify-content-center">
 
-                  {{-- Instagram --}}
+                  {{-- Contacts --}}
                   <li class="menu_item d-inline-block">
                     <a class="menu_link" href="#">
-                      <span>Contacts</span>
+                      <span class="contacts icon_fontawesome">Contacts</span>
                     </a>
                   </li>
 
-                  {{-- Facebook --}}
+                  {{-- Faq --}}
                   <li class="menu_item d-inline-block">
-                    <a class="menu_link" href="#">
-                      <span>Faq</span>
+                    <a class="menu_link" href="{{ route("faqs")}}">
+                      <span class="faq icon_fontawesome">Faq</span>
                     </a>
                   </li>
 
-                  {{-- Twitter --}}
+                  {{-- Work with us --}}
                   <li class="menu_item d-inline-block">
                     <a class="menu_link" href="#">
-                      <span>Work with us</span>
+                      <span class="work icon_fontawesome">Work with us</span>
                     </a>
                   </li>
 
-                  {{-- Youtube --}}
+                  {{-- Covid 19 --}}
                   <li class="menu_item d-inline-block">
                     <a class="menu_link" href="#">
-                      <span>Covid 19</span>
+                      <span class="covid icon_fontawesome">Covid 19</span>
                     </a>
                   </li>
 
@@ -88,7 +88,7 @@
                     <div class="carousel-caption d-none d-block">
                       <a href="https://www.linkedin.com/in/daniele-detommaso-234682178/" target="_blank">
                         <h5>Daniele Detommaso</h5>
-                        <p>Full-Stack Web Developer</p>
+                        <p class="icon_fontawesome">Full-Stack Web Developer</p>
                       </a>
                     </div>
                   </div>
@@ -100,7 +100,7 @@
                     <div class="carousel-caption d-none d-block">
                       <a href="https://www.linkedin.com/in/andrea-cinieri/" target="_blank">
                         <h5>Andrea Cinieri</h5>
-                        <p>Full-Stack Web Developer</p>
+                        <p class="icon_fontawesome">Full-Stack Web Developer</p>
                       </a>
                     </div>
                   </div>
@@ -112,7 +112,7 @@
                     <div class="carousel-caption d-none d-block">
                       <a href="https://www.linkedin.com/in/ivanmonfrini/" target="_blank">
                         <h5>Ivan Monfrini</h5>
-                        <p>Full-Stack Web Developer</p>
+                        <p class="icon_fontawesome">Full-Stack Web Developer</p>
                       </a>
                     </div>
                   </div>
@@ -124,7 +124,7 @@
                     <div class="carousel-caption d-none d-block">
                       <a href="https://www.linkedin.com/in/nicola-valente-339a0010a/?originalSubdomain=it" target="_blank">
                         <h5>Nicola Valente</h5>
-                        <p>Full-Stack Web Developer</p>
+                        <p class="icon_fontawesome">Full-Stack Web Developer</p>
                       </a>
                     </div>
                   </div>
@@ -187,7 +187,7 @@
               {{-- Socials navbar --}}
 
               {{-- Copyrights --}}
-              <p class="copyrights text-center">© 2020 Airbnb, Inc. All rights reserved protected by Copyrights</p>
+              <p class="icon_fontawesome copyrights text-center">Airbnb 2020 , Inc. All rights reserved protected by Copyrights</p>
 
             </section>
           </div>

@@ -1,54 +1,92 @@
-// Body
-$body-bg: #f8fafc;
+// partials/_varaiables.scss
+
+// Reset
+$border_none: none;
+$outline_none: none;
+$box_shadow_none: 0 0 0 0;
+$text_decoration_none: none;
+
+// General
+$app_width: 1200px;
+
+// Header
+// => Menu
+$menu_padding_margin: 30px;
+
+// Jumbotron
+// => Carousel
+$carousel_content_height: 480px;
+
+// => Jumbotron container
+$jumbotron_container_padding_top: 100px;
+
+// =>=> Title jumbotron
+$margin_top_title_jumbotron: 20px;
+
+// =>=> Search bar
+$margin_top_search_bar: 20px;
+$width_button_search_bar: 40px;
+
+// =>=>=> Dropdown menu algolia
+$width_dropdown_menu: 99.8%;
+$internal_padding_dropdown_menu: 15px;
+$suggestions_padding: 20px;
 
 // Main
 $menu_height: 60px;
 
+// Section title
+$margin_section_title: 0 0 50px 0;
+
+// Footer
+// => My presentation
+$footer_menu_padding: 15px 0 5px 0;
+$my_presentation_height: 130px;
+$height_title_carousel: 120px;
+
+// => Socials
+$icons_socials_size: 25px;
+
+// => => Carousel indicators
+$bottom_position_indicators: 90px;
+$bottom_position_carousel_title: -15px;
+$width_face_indicators: 45px;
+$margin_face_indicators: 0 10px;
+
+// Wrapper
+$main_padding: 100px;
+
 // Typography
+// => Font family
 $primary_font: 'Poppins', sans-serif;
 $secondary_font: 'Quando', serif;
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
-$paragraph_text_size: 15px;
-$hamburger_icon: 20px;
-$icon_size: 18px;
-$small_text_size: 14px;
-$h2_text_size: 44px;
-$h3_text_size: 30px;
-$h4_text_size: 24px;
-$h6_text_size: 20px;
-$jumbo_paragraph: 20px;
+
+// => Text size
+$text_size_1: 15px;
+$text_size_2: 20px;
+$text_size_3: 14px;
+$text_size_4: 12px;
+
+// =>=> Text title jumbotron
 $jumbo_h1: 44px;
 
+// =>=> Section title
+$h3_text_size: 32px;
+$h4_text_size: 16px;
+$icons_title: 24px;
+
+///////////////////////////
+$icon_size: 18px;
 
 // Colors
-$primary_background: #f6f4f2; //white
-$secondary_background: #272728;
-$tertiary_background: #616161;
-$qaternary_background: #2d3f53;
-$quinternary_background: #a73727;
-$bg_suites_card_color: #F8F9FA;
-$suites_cards_color: #eae2d2;
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
-
-// Text
-$primary_text_color: #f6f4f2;
-$secondary_text_color: #cf4532;
-$tertiary_text_color: #95afbf;
-$qaternary_text_color: #606060;
-$quinternary_text_color: #272728;
+// => Text
+$color_text_1: #272728;
+$color_text_2: #f6f4f2;
+$color_text_3: #2d3f53;
+$color_text_4: #fff;
+$color_text_5: #d7d7dc;
 $placeholder_text_color: #bebebe;
 
-
-// Register Login Form
-$main_padding: 100px;
+// => Buttons
+$color_buttons: #cf4532;
+$color_button_hover: #a73727;

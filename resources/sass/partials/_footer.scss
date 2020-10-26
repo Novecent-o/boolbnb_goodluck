@@ -4,38 +4,73 @@ footer {
 
   // Section Footer menu
   section.footer_menu {
-    background-color: $qaternary_background;
+    padding: $footer_menu_padding;
+    background-color: $color_text_3;
     width: 100%;
-    padding: 20px 0 6px 0;
 
     nav > ul {
       // width: 200px;
       margin: 0 auto;
 
-      // Socials icons
+      // Footer menu
       & > .menu_item {
-        padding: 0 10px;
-        border-right: 1.5px solid $primary_text_color;
-        line-height: 10px;
+        padding: 0 15px;
+        border-right: 1.5px solid $color_text_2;
+        line-height: 15px;
 
         &:last-child {
-          border: 0;
+          border: $border_none;
         }
 
         & > a {
-          text-decoration: none;
+          text-decoration: $text_decoration_none;
 
-          // Icons style
+          // Icons Before
+          & .icon_fontawesome::before {
+            @include icons_after_before;
+            opacity: 0.5;
+            margin: 0 10px 0 0;
+          }
+
+          // Before contacts
+          & .contacts.icon_fontawesome::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f2bb";
+          }
+
+          // Before faq
+          & .faq.icon_fontawesome::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f059";
+          }
+
+          // Before work with us
+          & .work.icon_fontawesome::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f0c0";
+          }
+
+          // Before covid 19
+          & .covid.icon_fontawesome::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f7f2";
+          }
+
+          // Text menu style
           & > span {
             font-family: $primary_font;
+            color: $color_text_2;
+            font-size: $text_size_4;
             text-transform: uppercase;
-            color: $primary_text_color;
-            font-size: 11px;
           }
 
           &:hover {
             & > span {
-              color: $secondary_text_color;
+              color: $color_buttons;
             }
           }
         }
@@ -45,8 +80,8 @@ footer {
 
   // Section presentation
   section.my_presentation {
-    background-color: $qaternary_background;
-    height: 120px;
+    background-color: $color_text_3;
+    height: $my_presentation_height;
 
     // Carousel
     .carousel-item {
@@ -54,38 +89,54 @@ footer {
 
       // fake image/div that gives height to carousel
       & .height_title {
-        height: 120px;
+        height: $height_title_carousel;
         display: none;
       }
     }
 
     // Carousel caption title and paragraph
     .carousel-caption {
-      bottom: -5px;
+      bottom: $bottom_position_carousel_title;
 
       & > a {
         text-decoration: none;
+        font-family: $primary_font;
+        color: $color_text_2;
+
+        & .icon_fontawesome::before,
+        & .icon_fontawesome::after {
+          @include icons_after_before;
+          opacity: 0.5;
+          margin: 0 5px;
+        }
+
+        & p.icon_fontawesome::after {
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\f053";
+        }
+
+        & p.icon_fontawesome::before {
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\f054";
+        }
 
         & > h5 {
-          bottom: 150px;
-          color: $primary_text_color;
-          font-family: $secondary_font;
-          font-size: 15px;
+          font-size: $text_size_2;
           margin: 0;
 
           &:hover {
-            color: $secondary_text_color;
+            color: $color_buttons;
           }
         }
 
         & > p {
-          font-family: $primary_font;
-          color: $primary_text_color;
-          font-size: 10px;
+          font-size: $text_size_4;
           margin:5px 0 0 0;
 
           &:hover {
-            color: $secondary_text_color;
+            color: $color_buttons;
           }
         }
       }
@@ -93,26 +144,26 @@ footer {
 
     // Carousel - hide rectangular slide indicators
     .carousel-indicators {
-      bottom: 90px;
+      bottom: $bottom_position_indicators;
 
       & > li {
         height: 0;
         border: 0;
-        margin: 0 5px;
-        width: 35px;
-        background-color: $qaternary_background;
+        margin: $margin_face_indicators;
+        width: $width_face_indicators;
+        background-color: transparent;
       }
     }
   }
 
   // Section Socials
   section.footer_socials {
-    background-color: $secondary_text_color;
+    background-color: $color_buttons;
     width: 100%;
     padding: 15px 0;
 
     nav > ul {
-      width: 200px;
+      width: 250px;
       margin: 0 auto;
 
       // Socials icons
@@ -121,13 +172,13 @@ footer {
         & > a {
           // Icons style
           & > i {
-            color: $primary_text_color;
-            font-size: 23px;
+            color: $color_text_3;
+            font-size: $icons_socials_size;
           }
 
           &:hover {
             & > i {
-              color: $qaternary_background;
+              color: $color_text_2;
             }
           }
         }
@@ -137,9 +188,22 @@ footer {
     // Copyrights
     .copyrights {
       font-family: $primary_font;
-      color: $qaternary_background;
-      font-size: 11px;
+      color: $color_text_2;
+      font-size: $text_size_4;
       margin: 10px 0 0 0;
+
+      // Icons After
+      &.icon_fontawesome::after {
+        @include icons_after_before;
+        opacity: 0.8;
+        color: $color_text_2;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+        margin: 0 0 0 5px;
+        vertical-align: top;
+        font-size: 10px;
+        content: "\f25d";
+      }
     }
   }
 }

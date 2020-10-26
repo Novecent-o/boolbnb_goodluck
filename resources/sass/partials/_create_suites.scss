@@ -20,23 +20,23 @@ main {
         & .custom-file-input:lang(en) ~ .custom-file-label::after {
           content: "Browse";
           font-family: $primary_font;
-          color: $primary_text_color;
-          font-size: $small_text_size;
+          color: $color_text_2;
+          font-size: $text_size_2;
         }
 
         & > .custom-file-input:focus ~ .custom-file-label {
-          border-color: $secondary_background;
+          border-color: $color_text_1;
           box-shadow: 0 0 0;
         }
 
         & > .custom-file-label::after {
-          background-color: $secondary_text_color;
+          background-color: $color_buttons;
           border-radius: 0;
         }
 
         &:hover {
           .custom-file-label::after {
-            background-color: $quinternary_background;
+            background-color: $color_button_hover;
           }
         }
       }
@@ -49,14 +49,14 @@ main {
 
     // Services checkbox
     .checkbox {
-      font-size: $small_text_size;
+      font-size: $text_size_2;
       text-align: left;
 
       /* Customize the label (the container) */
       .container_checkbox {
         padding-left: 25px;
         font-size: 25px;
-        color: $qaternary_background;
+        color: $color_text_2;
         width: 50px;
       }
 

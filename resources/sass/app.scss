@@ -1,5 +1,5 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
 
 // Variables
 @import 'partials/_mixin';
@@ -46,6 +46,3 @@
 
 // FAQs
 @import 'partials/_faq';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';

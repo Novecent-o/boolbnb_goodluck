@@ -9,7 +9,7 @@ main {
     .card-deck {
 
       .card {
-        background-color: $primary_text_color;
+        background-color: $color_text_2;
 
         .card-img-top {
           width: 100%;
@@ -19,14 +19,14 @@ main {
 
         .card-body {
           font-family: $primary_font;
-          color: $quinternary_text_color;
+          color: $color_text_1;
           text-transform: lowercase;
           height: 200px;
 
           // Card Title
           .card-title {
             font-family: $secondary_font;
-            font-size: $paragraph_text_size;
+            font-size: $text_size_1;
             text-transform: capitalize;
             margin:0 0 5px 0;
           }
@@ -40,21 +40,21 @@ main {
           // Card Price
           .price > span {
             font-weight: bold;
-            font-size: $paragraph_text_size;
+            font-size: $text_size_1;
             text-transform: capitalize;
           }
 
           .services {
             margin: 0 0 40px 0;
-            color: $qaternary_background;
-            font-size: $paragraph_text_size;
+            color: $color_text_2;
+            font-size: $text_size_1;
             padding-right: 40px;
           }
 
           // Card button to show
           .suite_show_link {
             & > a {
-              background-color: $secondary_text_color;
+              background-color: $color_buttons;
               font-family: $primary_font;
               font-size: 12px;
               font-weight: normal;
@@ -62,7 +62,7 @@ main {
               padding: 10px 20px;
 
               &:hover {
-                background-color: $quinternary_background;
+                background-color: $color_button_hover;
               }
             }
           }

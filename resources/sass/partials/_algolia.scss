@@ -1,65 +1,19 @@
 // partials/_algolia.scss
 
-// Algolia Index Search bar
-#algolia_form input:focus, #algolia_form input:active {
-  border-color: $secondary_background;
-  box-shadow: 0 0 0;
-  outline: none;
-}
-
-// Algolia Icon
-#algolia_form .ap-nostyle-input-icon {
-  display: none;
-  background: none;
-  border: none;
-}
-
-// Algolia form bar
-#algolia_form .algolia-places-nostyle {
-  flex-grow: 1
-}
-
-// Algolia dropdown menu
-#algolia_form .ap-nostyle-dropdown-menu {
-  background-color: #fff;
-  color: $secondary_background;
-  width: 99.8%;
-  padding: 6px 12px;
-  font-family: $primary_font;
-  font-size: $small_text_size;
-}
-
-// Algolia suggestion icon dropdown menu
-#algolia_form .ap-nostyle-dropdown-menu .ap-suggestion-icon {
-  vertical-align: super;
-}
-
-// Algolia suggestion dropdown menu
-#algolia_form .ap-nostyle-suggestion {
-  cursor: pointer;
-  padding-bottom: 20px;
-}
-
-// Algolia suggestion name of city
-#algolia_form .ap-nostyle-dropdown-menu .ap-name > em {
-  font-style: inherit;
-  font-weight: bold;
-}
-
 // Algolia Style reset
-.ap-input {
-  &::placeholder {
-    font-family: $primary_font;
-    color: $placeholder_text_color;
-    opacity: 1; /* Firefox */
-  }
+// .ap-input {
+  // &::placeholder {
+  //   font-family: $primary_font;
+  //   color: $placeholder_text_color;
+  //   opacity: 1; /* Firefox */
+  // }
 
-  &:focus, &:active {
-    border-color: $secondary_background;
-    outline: 0;
-    box-shadow: 0 0 0;
-  }
-}
+  // &:focus, &:active {
+  //   border-color: $color_text_1;
+  //   outline: 0;
+  //   box-shadow: 0 0 0;
+  // }
+// }
 
 // Algolia X icon
 .ap-input-icon.ap-icon-clear {
@@ -73,15 +27,15 @@
 
 .ap-dropdown-menu.ap-with-places {
   box-shadow: 0 0 0;
-  border: 1px solid $secondary_background;
+  border: 1px solid $color_text_1;
   border-top: 0;
   border-radius: 0;
   top: 90% !important;
 
   .ap-suggestions {
-    color: $secondary_background;
+    color: $color_text_1;
     font-family: $primary_font;
-    font-size: $small_text_size;
+    font-size: $text_size_2;
 
     .ap-suggestion {
       height: inherit;

@@ -31,21 +31,14 @@
       </div>
       {{-- end Background Images Carousel--}}
 
-      {{-- Next --}}
-      <a class="carousel-control-next d-none d-xl-flex" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-      {{-- end Next --}}
-
     </div>
     {{-- end Carousel --}}
 
     <div class="container jumbo_container">
 
       {{-- Jumbotron Title --}}
-      <div class="row d-flex justify-content-lg-start justify-content-center">
-        <div class="col-12 col-md-12 col-xl-6">
+      <div class="row">
+        <div class="col-sm-12 text-center col-md-10 offset-md-1 col-xl-6 text-xl-left">
           <div class="jumbo_title">
             <h1 class="jumbo_top_title">Discover Italy</h1>
             <p class="jumbo_sub_title">Change the picture. Discover nearby accommodations to enjoy, for work or leisure.</p>
@@ -54,8 +47,8 @@
       </div>
 
       {{-- Jumbotron Search input --}}
-      <div class="row d-flex justify-content-lg-start justify-content-center">
-        <div class="col-12 col-md-12 col-xl-6">
+      <div class="row">
+        <div class="col-sm-12 col-md-10 offset-md-1 col-xl-6">
           <form class="form_search_bar form" action="{{ route('suites.search.submit') }}" method="post">
             @csrf
             @method('get')
@@ -72,7 +65,7 @@
 
                 {{-- Button --}}
                 <div class="input-group-append">
-                  <button class="btn btn-outline-secondary rounded-0" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
+                  <button class="btn btn-outline-secondary rounded-0" type="submit" id="button-addon2"><i class="fas fa-map-marker-alt"></i></i></button>
                 </div>
                 {{-- end Button --}}
 
@@ -104,15 +97,22 @@
             </div>
 
             <div class="sub_title">
-              <h3>Choose your suite</h3>
+              <h3 class="icon_fontawesome">Choose your suite</h3>
             </div>
           </div>
           {{-- end Suites Cards Title --}}
 
           <div class="row">
 
-            {{-- Foreach suite with a promotion --}}
+          {{-- if i have suites with active highlight --}}
+          {{-- => Show the suite with highlight --}}
+          {{-- Else  --}}
+          {{-- => Show normal suites without highlight --}}
+          @if (!empty($highlights_suites_active))
+
+            {{-- => Foreach suite WITH an active highlight --}}
             @foreach ($highlights_suites_active as $highlight_suite_active)
+
               {{-- Card --}}
               <div class="col-lg-4 col-md-6 col-sm-12 pb-2 p-2">
                 <div class="card-deck">
@@ -185,7 +185,92 @@
                 </div>
               </div>
             {{-- end Card --}}
+
             @endforeach
+            {{-- end Foreach suite WITH an active highlight --}}
+
+          @else {{--------------------------------------------------------------}}
+
+            {{-- => Foreach normal suite WITHOUT an active highlight --}}
+            @foreach ($suites as $suite)
+
+              {{-- Card --}}
+              <div class="col-lg-4 col-md-6 col-sm-12 pb-2 p-2">
+                <div class="card-deck">
+                  <div class="card single_card border-0 rounded-0">
+
+                    {{-- Change Main Image path If Faker Or Storage --}}
+                    @if (isset($suite->main_image))
+                      @if (strpos($suite->main_image, 'lorempixel') == false)
+
+                        {{-- Main Image storage --}}
+                        <img
+                          class="card-img-top border-0 rounded-0"
+                          src="{{ asset('storage') . "/" . $suite->main_image }}"
+                          alt="{{ $suite->title }}">
+                        {{-- end Main Image storage --}}
+
+                       @else
+
+                         {{-- Main Image faker --}}
+                         <img
+                           class="card-img-top"
+                           src="{{ $suite->main_image }}"
+                           alt="{{ $suite->title }}">
+                         {{-- end Main Image faker --}}
+
+                      @endif
+                    @endif
+                    {{-- end Change Main Image path If Faker Or Storage --}}
+
+                    {{-- Card Text --}}
+                    <div class="card-body p-3 d-flex flex-column justify-content-between">
+                      <div class="title_address">
+                        <h5 class="card-title">{{ $suite->title }}</h5>
+                        <p class="card-text">{{ $suite->address }}</p>
+                      </div>
+
+                      {{-- Services --}}
+                      <div class="services d-flex justify-content-start">
+                        @if (empty($suite->services))
+                          <i class="fas fa-not-equal"></i>
+                        @else
+                          @foreach ($suite->services as $suite_service)
+                            <i class="{{ $suite_service->icon }} pr-3"></i>
+                          @endforeach
+                        @endif
+                      </div>
+                      {{-- end Services --}}
+
+                      {{-- Price & Show button --}}
+                      <div class="price_show d-flex justify-content-between align-items-center">
+                        <div class="price d-flex justify-content-start">
+                          <span>{{ $suite->price }} $</span>
+                        </div>
+                        <div class="suite_show_link">
+                          <a href="{{ route("suites.show", $suite->id) }}" class="badge badge-primary border-0 rounded-0">
+                            <span>Show</span>
+                          </a>
+                        </div>
+                      </div>
+                      {{-- Price & Show button --}}
+
+                    </div>
+                    {{-- end Card Text --}}
+
+                  </div>
+                </div>
+              </div>
+            {{-- end Card --}}
+
+            @endforeach
+            {{-- end Foreach suite WITHOUT an active highlight --}}
+
+            {{-- Pagination links --}}
+            {{ $suites->links('pagination::default') }}
+
+          @endif
+          {{-- end if I have suites with active highlight --}}
 
           </div>
         </div>

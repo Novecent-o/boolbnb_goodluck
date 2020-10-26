@@ -19,7 +19,7 @@
         {{-- end Logo --}}
 
         {{-- Hamburger menu --}}
-        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler ml-auto custom-toggler border-0 rounded-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="hamburger_icon">
             <i class="fas fa-bars"></i>
           </span>
@@ -80,8 +80,7 @@
                 </li>
             @else
               <li class="nav-item nav_before_log">
-                <span class="user_greeting">Hi</span>
-                <span class="user_name">{{ Auth::user()->name }}!</span>
+                <span class="user_name icon_fontawesome">{{ Auth::user()->name }}</span>
               </li>
               <li class="nav-item nav_login_logout">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

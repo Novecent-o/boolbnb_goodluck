@@ -25,14 +25,14 @@ main {
 
       // Services checkbox
       .checkbox {
-        font-size: $small_text_size;
+        font-size: $text_size_2;
         text-align: left;
 
         /* Customize the label (the container) */
         .container_checkbox {
           padding-left: 25px;
           font-size: 20px;
-          color: $qaternary_background;
+          color: $color_text_2;
           width: 50px;
         }
 
@@ -56,19 +56,19 @@ main {
       .btn_search {
 
         .input_search {
-          background-color: $secondary_text_color;
+          background-color: $color_buttons;
           border: none;
           width: 100%;
           padding: 10px 0;
           margin-right: 0;
-          color: $primary_text_color;
+          color: $color_text_2;
           font-family: $primary_font;
-          font-size: $small_text_size;
+          font-size: $text_size_2;
           text-transform: capitalize;
           font-weight: bold;
 
           &:hover {
-            background-color: $quinternary_background;
+            background-color: $color_button_hover;
           }
 
           &:focus, &:active {
@@ -82,7 +82,7 @@ main {
 
     // Cards and Maps
     .card {
-      background-color: $primary_text_color;
+      background-color: $color_text_2;
       padding: 15px;
 
       .img_container {
@@ -105,7 +105,7 @@ main {
 
       .card-body {
         font-family: $primary_font;
-        color: $quinternary_text_color;
+        color: $color_text_1;
         text-transform: lowercase;
         padding: 0 0 0 15px;
         height: 100%;
@@ -113,7 +113,7 @@ main {
         // Card Title
         .card-title {
           font-family: $secondary_font;
-          font-size: $small_text_size;
+          font-size: $text_size_2;
           text-transform: capitalize;
           margin:0 0 5px 0;
         }
@@ -127,14 +127,14 @@ main {
         // Card Price
         .price > span {
           font-weight: bold;
-          font-size: $small_text_size;
+          font-size: $text_size_2;
           text-transform: capitalize;
         }
 
         // Card button to show
         .suite_show_link {
           & > a {
-            background-color: $secondary_text_color;
+            background-color: $color_buttons;
             font-family: $primary_font;
             font-size: 10px;
             font-weight: normal;
@@ -142,7 +142,7 @@ main {
             padding: 10px 20px;
 
             &:hover {
-              background-color: $quinternary_background;
+              background-color: $color_button_hover;
             }
           }
         }
@@ -156,7 +156,7 @@ main {
 
         .card-body {
           font-family: $primary_font;
-          color: $qaternary_background;
+          color: $color_text_2;
           text-transform: lowercase;
           padding: 0 0 0 15px;
           height: 100%;

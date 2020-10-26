@@ -2,72 +2,19 @@
 
 // Reset
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-// Button Reset
-button {
-  border: none;
-}
-
-button:hover {
-  background: transparent;
-  box-shadow: 0px 0px 0px transparent;
-  border: 0px solid transparent;
-  text-shadow: 0px 0px 0px transparent;
-}
-
-button:active {
-  outline: none;
-  border: none;
-}
-
-button:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0;
-}
-
-// Form
-.form-control:focus, .form-control:focus {
-  border-color: $secondary_background;
-  outline: 0;
-  box-shadow: 0 0 0;
-}
-
-.btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
-  box-shadow: 0 0 0 0;
-  outline: 0;
-}
-
-a.badge.badge-primary:focus, a.badge.badge-primary.focus {
-  outline: 0;
-  box-shadow: 0 0 0;
-  -ms-transform: scale(0.98,0.98); /* IE 9 */
-  transform: scale(0.98,0.98); /* Standard syntax */
-}
-
-button.btn-home{
-  background: #cf4532;
-  color: #F6F4F2;
-  border-radius: 20px;
-  padding: 10px;
-  margin-top: 20px;
-  &:hover{
-    background: #8b0000;
-  }
-
-  a{
-    color: #F6F4F2;
-    text-decoration: none;
-  }
+  @include reset;
 }
 
 // General
+body {
+  @include body;
+  font-family: $primary_font;
+  font-size: $text_size_3;
+  color: $color_text_1;
+}
+
 img {
-  width: 100%;
-  display: block;
+  @include reset_img;
 }
 
 // Main wrapper
@@ -75,12 +22,43 @@ img {
   @include main_wrapper;
 }
 
-.ap-input {
-  background-color: red;
+// Reset Links
+a {
+  font-size: $text_size_4;
 }
 
+a.badge-primary:focus {
+    outline: $outline_none;
+    box-shadow: $border_none;
+}
 
-// modal loading
+// Reset Buttons
+button {
+  border: $border_none;
+}
+
+button:hover {
+  @include reset_input;
+}
+
+button:active, button:focus {
+  border: $border_none;
+  outline: $outline_none;
+  box-shadow: $box_shadow_none;
+}
+
+// Reset input type: search
+// => Clears the "X" from Internet Explorer //
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+
+// => clears the "X" from Chrome //
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+// Modal loading
 .loader {
     display:    none;
     position:   fixed;

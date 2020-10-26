@@ -6,17 +6,19 @@ main {
   section.jumbo_custom {
     @include jumbotron_background_image;
     font-family: $primary_font;
-    color: $primary_text_color;
-    font-size: $jumbo_paragraph;
+    font-size: $text_size_1;
+    color: $color_text_4;
 
     // Carousel
     .carousel {
-      height: 480px;
+      height: $carousel_content_height;
       width: 100%;
       position: absolute;
 
       .carousel-inner > .carousel-item > img {
-        height: 480px;
+        height: $carousel_content_height;
+        filter: brightness(85%) saturate(120%);
+        -webkit-filter: brightness(85%) saturate(120%);
       }
     }
 
@@ -24,46 +26,127 @@ main {
     & > .jumbo_container {
       height: 100%;
       width: 100%;
-      padding-top: 100px;
+      padding-top: $jumbotron_container_padding_top;
 
       // Title jumbotron
       .jumbo_title {
         & > .jumbo_top_title {
           font-family: $secondary_font;
           font-size: $jumbo_h1;
-          margin-bottom: 20px;
+          margin-bottom: $margin_top_title_jumbotron;
         }
       }
 
-      // Input Forms style
-      .input-group {
-        margin-top: 20px;
+      // Input Search bar ------------------------------------------------------
+      .form_search_bar .input-group {
+        margin-top: $margin_top_search_bar;
 
-        // Button
-        .input-group-append > .btn {
-          background-color: $secondary_text_color;
-          color: $primary_text_color;
-          padding:0 15px;
-          border: 0;
+        // => Input Style !! Algolia places !!
+        & > .algolia-places-nostyle {
+          flex-grow: 1;
 
-          &:hover {
-            background-color: $quinternary_background;
+          // =>=> Input text
+          & > .form-control.ap-nostyle-input {
+            font-family: $primary_font;
+            font-size: $text_size_3;
+            color: $color_text_1;
+
+            // =>=> Input active / focus
+            &:focus,
+            &:active {
+              box-shadow: $box_shadow_none;
+            }
+
+            // =>=> Input placeholder
+            &::placeholder {
+              font-size: $text_size_3;
+              color: $placeholder_text_color;
+            }
           }
 
-          &.btn-outline-secondary:focus {
-            box-shadow: 0 0 0 0;
-            outline: 0;
+          // => Dropdown menu
+          & .ap-nostyle-dropdown-menu.ap-nostyle-with-places {
+            width: $width_dropdown_menu;
+            padding: $internal_padding_dropdown_menu;
+            background-color: $color_text_4;
+            color: $color_text_1;
+            font-family: $primary_font;
+            font-size: $text_size_3;
+
+            // Algolia Suggestions
+            & .ap-nostyle-suggestion {
+              cursor: pointer;
+              padding-bottom: $suggestions_padding;
+            }
+
+            // Algolia cities names suggestions
+            & .ap-name {
+              color: $placeholder_text_color;
+              font-family: $primary_font;
+              font-weight: bold;
+              font-size: $text_size_3;
+
+              & > em {
+                font-style: inherit;
+                font-weight: bold;
+                color: $color_text_1;
+              }
+            }
+
+            // Algolia cities address
+            & .ap-address {
+              font-family: $secondary_font;
+              font-size: $text_size_4;
+              color: $color_text_1;
+
+              &:before {
+                display: inline-block;
+                font-style: normal;
+                font-variant: normal;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                color: $color_text_3;
+                content: "\f276";
+              }
+            }
+
+            & .ap-suggestion-icon {
+              vertical-align: super;
+              color: $color_text_3;
+
+              & > svg {
+                fill: $color_buttons;
+              }
+            }
           }
         }
 
-        // Input Style
-        & > .form-control {
-          border: 0;
+        // => Input Algolia icon
+        & .ap-nostyle-input-icon.ap-nostyle-icon-pin {
+          @include algolia_nostyle_icons;
+        }
 
-          &:focus {
-            border-color: $secondary_background;
-            box-shadow: 0 0 0;
-            outline: 0 none;
+        & .ap-nostyle-input-icon.ap-nostyle-icon-clear {
+          @include algolia_nostyle_icons;
+        }
+
+        // => Input right button
+        .input-group-append > .btn {
+          background-color: $color_buttons;
+          border: $border_none;
+          width: $width_button_search_bar;
+          color: $color_text_2;
+          padding: 0;
+
+          &:hover {
+            background-color: $color_button_hover;
+          }
+
+          &.btn-outline-secondary:focus {
+            box-shadow: $box_shadow_none;
+            outline: $outline_none;
           }
         }
       }

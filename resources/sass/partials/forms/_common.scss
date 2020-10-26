@@ -10,15 +10,15 @@ main {
       // Top title
       .top_title > h4 {
         font-family: $primary_font;
-        color: $quinternary_text_color;
-        font-size: $small_text_size;
+        color: $color_text_1;
+        font-size: $text_size_3;
         @include form_top_title;
       }
 
       // Sub title
       .sub_title > h3 {
         font-family: $secondary_font;
-        color: $qaternary_background;
+        color: $color_text_2;
         font-size: $h3_text_size;
         @include form_sub_title;
       }
@@ -34,7 +34,7 @@ main {
       & .form-control,
       & .input_box .custom-select,
       & label {
-        color: $quinternary_text_color;
+        color: $color_text_1;
         font-family: $primary_font;
 
         &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -51,7 +51,7 @@ main {
         }
 
         &:focus {
-          border-color: $secondary_background;
+          border-color: $color_text_1;
           box-shadow: 0 0 0;
           outline: 0 none;
         }
@@ -63,7 +63,7 @@ main {
       color: $placeholder_text_color;
 
       option {
-        color: $quinternary_text_color;
+        color: $color_text_1;
         font-family: $primary_font;
       }
     }
@@ -87,14 +87,14 @@ main {
       margin: 0;
 
       .button_submit > .custom_button {
-        background-color: $secondary_text_color;
+        background-color: $color_buttons;
         font-family: $primary_font;
-        color: $primary_text_color;
-        font-size: $paragraph_text_size;
+        color: $color_text_2;
+        font-size: $text_size_1;
         @include form_btn_submit;
 
         &:hover {
-          background-color: $quinternary_background;
+          background-color: $color_button_hover;
         }
 
         &:focus {
@@ -109,8 +109,8 @@ main {
     .checkbox {
       @include text_checkbox;
       font-family: $primary_font;
-      color: $quinternary_text_color;
-      font-size: $paragraph_text_size;
+      color: $color_text_1;
+      font-size: $text_size_1;
 
 
       /* Customize the label (the container) */
@@ -131,7 +131,7 @@ main {
 
       /* When the radio button is checked, add a background */
       .container_checkbox input:checked ~ .checkmark {
-        background-color: $secondary_text_color;
+        background-color: $color_buttons;
       }
 
       /* Create the indicator (the dot/circle - hidden when not checked) */

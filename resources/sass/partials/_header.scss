@@ -2,21 +2,25 @@
 
 // Nav
 header {
-  width: 1200px;
+  width: $app_width;
 
   // Navbar
   .navbar {
     padding: 0;
     height: $menu_height;
+
+    .ml-auto {
+      background-color: $color_text_2;
+    }
   }
 
   .navbar-custom {
-    background-color: $primary_background;
+    background-color: $color_text_2;
     @include main_wrapper;
-  }
 
-  .navbar-custom .bg-custom {
-    background-color: $primary_background;
+    & .bg_custom {
+      background-color: $color_text_2;
+    }
   }
 
   // Logo
@@ -25,19 +29,20 @@ header {
   }
 
   .nav_logo {
-    width: 90px;
-    margin-left: 30px;
+    width: $menu_padding_margin * 3;
+    margin-left: $menu_padding_margin;
   }
 
   // Inline navigation menu
   .nav-item {
-    line-height: 60px;
-    margin-left: 30px;
+    height: 100%;
+    line-height: $menu_height;
+    margin-left: $menu_padding_margin;
 
     & > span {
       font-family: $primary_font;
-      color: $quinternary_text_color;
-      font-size: $small_text_size;
+      color: $color_text_1;
+      font-size: $text_size_3;
       text-transform: capitalize;
       font-weight: bold;
     }
@@ -48,61 +53,65 @@ header {
 
     & > span {
       font-family: $primary_font;
-      color: $quinternary_text_color;
-      font-size: $small_text_size;
+      color: $color_text_1;
+      font-size: $text_size_3;
       text-transform: capitalize;
       font-weight: bold;
     }
+  }
 
+  .navbar .navbar-collapse .navbar-nav .nav-item:not(:last-child) .nav-link {
     &:hover {
       & > span {
-        color: $secondary_text_color;
+        color: $color_buttons;
+        border-bottom: 2px solid $color_buttons;
       }
     }
   }
 
   .navbar .navbar-collapse .navbar-nav .nav-item.nav_before_log {
-    margin-right: 30px;
+    margin-right: $menu_padding_margin;
   }
 
   // Login
   .navbar .navbar-collapse .navbar-nav .nav-item.nav_login_logout {
-    background-color: $secondary_text_color;
-    padding:0 30px;
+    background-color: $color_buttons;
+    padding: 0 $menu_padding_margin;
     margin: 0;
 
     &:hover {
-      background-color: $quinternary_background;
+      background-color: $color_button_hover;
     }
 
     & .nav-link > span {
-      color: $primary_text_color;
+      color: $color_text_2;
     }
   }
 
-  // User User greeting
-  span.user_greeting {
-    text-transform: uppercase;
-  }
+  // User User name
+  .collapse.navbar-collapse .navbar-nav.ml-auto .nav-item > span.user_name {
+    color: $color_buttons;
 
-  span.user_name {
-    color: $secondary_text_color;
+    &.icon_fontawesome::before {
+      @include icons_after_before;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      color: $color_text_3;
+      margin-right: 10px;
+      content: "\f164"
+    }
   }
 
   // Hamburger menu
   .navbar button.custom-toggler.navbar-toggler {
-    background-color: $secondary_text_color;
-    padding:0 50px;
-    height: 60px;
-    border-radius: 0;
+    background-color: $color_buttons;
+    height: $menu_height;
+    padding:0 $menu_padding_margin * 1.5;
 
-    &:focus {
-      outline: none;
-    }
 
     & .hamburger_icon i {
-      font-size: $hamburger_icon;
-      color: $primary_text_color;
+      font-size: $text_size_2;
+      color: $color_text_2;
     }
   }
 }

@@ -15,7 +15,7 @@
       </p>
     </div>
   </div>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion mb-5" id="accordionExample">
       @foreach ($faqs as $faq)
         @if ($faq->id === 1)
           <div class="card rounded-0">

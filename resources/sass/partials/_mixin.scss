@@ -1,5 +1,42 @@
 // partials/_mixin.scss
 
+// Reset
+@mixin reset {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@mixin reset_img {
+  width: 100%;
+  display: block;
+}
+
+// => input
+@mixin reset_input {
+  background-color: transparent;
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border: none;
+}
+
+// Genearl
+@mixin body {
+  height: 100%;
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+}
+
+// Fontawesome
+@mixin icons_after_before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 // Main wrapper
 @mixin main_wrapper {
   max-width: 1200px;
@@ -17,6 +54,13 @@
 @mixin main_sub_title {
   text-transform: capitalize;
   margin: 0;
+}
+
+@mixin icons_title {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  vertical-align: top;
+  content: "\f276";
 }
 
 // Jumbotron
@@ -88,7 +132,7 @@
    height: 18px;
    width: 18px;
    border-radius: 50%;
-   border: 1px solid $secondary_text_color;
+   border: 1px solid $color_buttons;
 }
 
 /* Create the indicator (hidden when not checked) */
@@ -109,4 +153,12 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+// Algolia
+// => Algolia nostyle icons
+@mixin algolia_nostyle_icons {
+  display: none;
+  background: none;
+  border: none;
 }

@@ -5,25 +5,48 @@ main {
 
   // Main title
   .main_title {
-    margin:0 0 50px 0;
+    margin: $margin_section_title;
 
     // Top title
     .top_title > h4 {
       font-family: $primary_font;
-      color: $quinternary_text_color;
-      font-size: $small_text_size;
+      color: $color_text_5;
+      font-size: $h4_text_size;
       @include main_top_title;
+      display: inline-block;
     }
 
     // Sub title
     .sub_title > h3 {
       font-family: $secondary_font;
-      color: $qaternary_background;
+      color: $color_text_3;
       font-size: $h3_text_size;
       @include main_sub_title;
+
+      // Icons after e before title
+      &.icon_fontawesome::before,
+      &.icon_fontawesome::after {
+        @include icons_after_before;
+      }
+
+      &.icon_fontawesome::before {
+        @include icons_title;
+        font-size: $icons_title;
+        margin-right: 25px;
+        color: $color_buttons;
+        transform: rotate(-45deg);
+      }
+
+      &.icon_fontawesome::after {
+        @include icons_title;
+        font-size: $icons_title;
+        margin-left: 25px;
+        color: $color_buttons;
+        transform: rotate(45deg);
+      }
     }
   }
-  
+
   // VIEW NEW SUITES
   .anteprima{
     #output,#output1,#output2,#output3{
