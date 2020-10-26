@@ -1,4 +1,4 @@
-# BoolBnB
+## BoolBnB
 
 ### Sviluppo di un'applicazione ispirata ad AirBnb:
 l'applicazione permette agli utenti registrati di aggiungere i propri appartamenti, fornirne una breve descrizione dettagliandogli con servizi associati.
